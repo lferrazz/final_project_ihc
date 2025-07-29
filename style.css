@@ -1,0 +1,298 @@
+/* ==============================================
+   EcoHábito - Folha de Estilos Refeita (v2.0)
+   ==============================================
+*/
+
+/* Importação da Fonte e Definição de Variáveis de Cor */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+    /* Paleta de Cores Refinada */
+    --color-bg: #f7f8fc; /* Fundo principal, um branco levemente azulado */
+    --color-surface: #ffffff; /* Cor para cartões e superfícies */
+    --color-primary: #34a853; /* Verde principal, mais vibrante e moderno */
+    --color-primary-light: #e6f4ea; /* Verde claro para estados "concluído" */
+    --color-accent: #ff7043; /* Laranja/Coral para destaque e motivação */
+    --color-text-primary: #202124; /* Cor de texto principal (preto suave) */
+    --color-text-secondary: #5f6368; /* Cor de texto secundário (cinza escuro) */
+    --color-border: #dfe1e5; /* Cor da borda, sutil */
+
+    /* Variáveis de Layout */
+    --border-radius-small: 8px;
+    --border-radius-medium: 16px;
+    --border-radius-large: 24px;
+    --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Estilos Globais e Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text-primary);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+/* Estrutura Principal do App (Mobile-First) */
+.app-container {
+    width: 100%;
+    max-width: 480px;
+    background-color: var(--color-surface);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    box-shadow: var(--shadow-soft);
+}
+
+main {
+    flex-grow: 1;
+    padding: 1rem 1.5rem 8rem 1.5rem; /* Padding inferior para não sobrepor a navegação fixa */
+}
+
+/* Cabeçalho */
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 1.5rem;
+    background-color: var(--color-surface);
+}
+
+.app-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.streak-counter {
+    background-color: var(--color-accent);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius-medium);
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Navegação Fixa Inferior */
+.app-nav {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 480px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid var(--color-border);
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--color-text-secondary);
+    font-weight: 500;
+    font-size: 0.8rem;
+    padding: 0.5rem;
+    border-radius: var(--border-radius-small);
+    transition: color 0.3s, background-color 0.3s;
+    position: relative;
+}
+
+.nav-link.active {
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 6px;
+    background-color: var(--color-primary);
+    border-radius: 50%;
+}
+
+.nav-link.add-new {
+    background: linear-gradient(45deg, var(--color-primary), #66bb6a);
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    font-weight: 300;
+    line-height: 1;
+    margin-top: -30px;
+    box-shadow: 0 6px 15px rgba(52, 168, 83, 0.4);
+    border: 4px solid var(--color-surface);
+    transition: transform 0.2s ease-out;
+}
+.nav-link.add-new:hover { transform: scale(1.1) translateY(-5px); }
+.nav-link.add-new.active { box-shadow: 0 0 0 4px var(--color-primary-light); }
+
+
+/* Itens de Hábito (Dashboard) */
+.habit-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.habit-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--color-surface);
+    padding: 1.25rem;
+    border-radius: var(--border-radius-medium);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+    transition: all 0.3s ease;
+}
+
+.habit-info {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.habit-icon { font-size: 1.75rem; }
+.habit-name { font-weight: 500; font-size: 1.05rem; }
+
+.btn-done {
+    width: 32px;
+    height: 32px;
+    border: 2px solid var(--color-border);
+    border-radius: 50%;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: white;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.habit-item.habit-item-done {
+    background-color: var(--color-primary-light);
+    box-shadow: none;
+}
+
+.habit-item.habit-item-done .habit-name {
+    text-decoration: line-through;
+    color: var(--color-text-secondary);
+}
+
+.habit-item.habit-item-done .btn-done {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+/* Tela de Adicionar/Editar Hábito */
+.form-add-habit { display: flex; flex-direction: column; gap: 2rem; }
+.form-group { display: flex; flex-direction: column; gap: 0.5rem; }
+.form-group label { font-weight: 600; color: var(--color-text-secondary); }
+.form-group input, .form-group select {
+    padding: 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-small);
+    font-size: 1rem;
+    font-family: 'Poppins';
+    background-color: var(--color-bg);
+}
+.form-group input:focus, .form-group select:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px var(--color-primary-light);
+}
+
+.icon-selector, .color-selector { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.icon-option, .color-option {
+    width: 48px; height: 48px; border-radius: 50%;
+    border: 2px solid transparent;
+    cursor: pointer; font-size: 1.75rem;
+    background-color: var(--color-bg);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+.icon-option.active, .color-option.active { 
+    border-color: var(--color-primary);
+    transform: scale(1.1);
+}
+.btn-primary {
+    background: linear-gradient(45deg, var(--color-primary), #66bb6a);
+    color: white;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 1.1rem;
+    border: none;
+    border-radius: var(--border-radius-medium);
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+.btn-primary:hover { opacity: 0.9; }
+.back-link { text-decoration: none; color: var(--color-primary); font-weight: 600; font-size: 1rem; }
+
+/* Tela de Progresso */
+.progress-section { margin-bottom: 2.5rem; }
+.progress-section h2 { font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem; border-bottom: 2px solid var(--color-primary-light); padding-bottom: 0.5rem;}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.75rem;
+    text-align: center;
+}
+.day, .date { font-size: 0.9rem; padding: 0.5rem; border-radius: 50%; aspect-ratio: 1 / 1; display: flex; align-items: center; justify-content: center; }
+.day { font-weight: 600; color: var(--color-text-secondary); }
+.date.completed { background-color: var(--color-primary-light); color: var(--color-primary); font-weight: 600; }
+.date.today { background-color: var(--color-accent); color: white; font-weight: 700; }
+
+.stats-list { display: flex; flex-direction: column; gap: 1.5rem; }
+.stats-item p { font-weight: 500; margin-bottom: 0.5rem; }
+.progress-bar {
+    width: 100%;
+    height: 12px;
+    background-color: var(--color-border);
+    border-radius: var(--border-radius-small);
+    overflow: hidden;
+}
+.progress {
+    height: 100%;
+    background-color: var(--color-primary);
+    border-radius: var(--border-radius-small);
+    color: white;
+    font-size: 0; /* Oculta texto, pois a barra é fina demais */
+}
+
+/* Responsividade para Desktop */
+@media (min-width: 768px) {
+    body { align-items: center; }
+    .app-container {
+        min-height: auto;
+        max-height: 95vh;
+        border-radius: var(--border-radius-large);
+        border: 1px solid var(--color-border);
+    }
+    .app-nav { border-radius: 0 0 var(--border-radius-large) var(--border-radius-large); }
+}

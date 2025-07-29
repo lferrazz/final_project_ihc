@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Hábito</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <a href="index.html" class="back-link">‹ Voltar</a>
+            <h1>Novo Hábito</h1>
+        </header>
+
+        <main>
+            <form class="form-add-habit">
+                <div class="form-group">
+                    <label for="habit-name">Nome do Hábito</label>
+                    <input type="text" id="habit-name" placeholder="Ex: Ler um livro">
+                </div>
+
+                <div class="form-group">
+                    <label for="habit-frequency">Frequência</label>
+                    <select id="habit-frequency">
+                        <option value="1">1 vez por dia</option>
+                        <option value="2">2 vezes por dia</option>
+                        <option value="3">3 vezes por dia</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Ícone</label>
+                    <div class="icon-selector">
+                        <button type="button" class="icon-option active">💧</button>
+                        <button type="button" class="icon-option">📖</button>
+                        <button type="button" class="icon-option">👟</button>
+                        <button type="button" class="icon-option">🧘</button>
+                        <button type="button" class="icon-option">🍎</button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Cor</label>
+                    <div class="color-selector">
+                        <button type="button" class="color-option" style="background-color: #3498db;"></button>
+                        <button type="button" class="color-option" style="background-color: #e74c3c;"></button>
+                        <button type="button" class="color-option active" style="background-color: #2ecc71;"></button>
+                        <button type="button" class="color-option" style="background-color: #f1c40f;"></button>
+                        <button type="button" class="color-option" style="background-color: #9b59b6;"></button>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-primary">Salvar</button>
+            </form>
+        </main>
+        
+        <nav class="app-nav">
+            <a href="index.html" class="nav-link active">Hoje</a>
+            <a href="novo-habito.html" class="nav-link add-new">+</a>
+            <a href="progresso.html" class="nav-link">Progresso</a>
+        </nav>
+    </div>
+</body>
+</html>
